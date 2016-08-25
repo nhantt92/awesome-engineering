@@ -121,6 +121,96 @@ Việc đồng bộ Tới là tiến trình chuyển sự thay đổi từ mạc
 
 ## 3. [Schematics]
 
+###3.1 Sử dụng Eeshchema
+
+Trong cửa sổ chính của chương trình quản lý dự án KiCad có thể truy cập đến 8 công cụ phần mềm độc lập: *Eeschema, Schematic Library Editor, Pcbnew, PCB Footprint Editor, GerbView, Bitmap2Component, PCB Calculator and Pl Editor.* 
+
+![](images/kicad_main_window.png)
+
+Tạo một projet: __File → New Project → New Project__. Đặt tên của project là *tutorial1*. Project sẽ tự động tạo ra file với phần mở rộng ".pro". Kicad nhắc nhở tạo một thư mục riêng, click "Yes" để xác nhận. Tất cả các file trong project sẽ được lưu tại đây.
+
+Hãy bắt đầu bằng cách tạo ra một schematic. Bắt đầu thiết kế một schematic với  
+*Eeschema*, ![](images/icons/eeschema.png). Nút đầu tiên từ bên trái.
+
+Click vào biểu tượng *Page Settings* ![](images/icons/sheetset.png) trên thanh công cụ. Thiết lập cỡ trang *A4* và nhập vào tiêu đề Title là *Tutorial 1*. Bạn sẽ thấy rằng nhiều thông tin được cập nhật vào đây nếu cần thiết. Click OK. Thông tin này sẽ hiển thị ở góc dưới bên phải của trang giấy. Sử dụng nút lăn chuột để phóng to thu nhỏ. Lưu toàn bộ schematic project lại: __File → Save Schematic Project__
+
+Bây giờ chúng ta sẽ lấy linh kiện đặt vào schematic. Click vào biểu tượng *Place component* ![](images/icons/add_component.png) trên thanh công cụ bên phải. Chức năng này được thực hiện bởi phím tắt (*a*).
+
+>**Note** Có thể thấy tất cả danh sách phím tắt bằng cách nhấn phím ?
+
+Click chuột vào giữ schematic. Một cửa sổ lựa chọn linh kiện  _Choose Component_ sẽ xuất hiện. Chúng ta sẽ đặt một điện trở. Gõ R trên Filter tìm kiếm điện trở. 
+
+![](images/image/choose_component.png)
+
+Double click vào nó sẽ đóng cửa sổ _Choose Component_. Click vào vị trí muốn đặt linh kiện trên schematic.
+
+Click vào biểu tượng kính lúp để phóng to linh kiện. Ngoài ra còn sử dụng con lăn trên chuột để phóng to thu nhỏ linh kiện.
+
+Di chuyển con trỏ chuột qua linh kiện, nhấn R để xoay linh kiện. Không cần phải nhấp chuột vào linh kiện để xoay linh kiện.
+
+> **Note** Nếu di chuyển con trỏ chuột vượt quá linh kiện chạm tới R một menu sẽ xuất hiện. 
+
+Click chuột phải vào giữa linh kiện và chọn __ Edit Component → Value__. Hoặc có thể di chuyển chuột vào linh kiện rồi nhấn phím V, phím E sẽ đưa tới cửa sổ tổng quát hơn. Cách Click chuột phải sẽ cho thấy phím tắt và các hành động.
+
+![](images/image/edit_component_dropdown.png)
+
+Cửa sổ linh kiện xuất hiện. Thay thế giá trị hiện tại của điện trở với 1k. click OK.
+
+>**Note** không thay thế R?. Nó sẽ được thực hiện tự động sau. Giá trị điện trở nên được nằm bên trong con trở, R? bên ngoài là tên của linh kiện R1, R2,... Xem hình. 
+
+![](images/image/resistor_value.png)
+
+Để đặt điện trở khác, chỉ cần click vào nơi bạn muốn đặt điện trở, cửa sổ lấy linh kiện sẽ xuất hiện.
+
+Các điện trở chọn trước đó có trong danh sách history. Click OK để đặt linh kiện.
+
+![](images/image/component_history.png)
+
+Trong trường hợp muốn xóa linh kiện, click chuột phải vào nó và chọn _Delete Component_. Sẽ delete linh kiện trên schematic. Ngoài ra có thể di chuyển chuột ngang qua linh kiện rồi nhấn phím Delete hoặc Del.
+
+>**Note**: Có thể sửa bất kỳ phím tắt mặc đình nào bằng cách vào __Preferences → Hotkeys → Edit hotkeys__. Bất kỳ thay đổi nào sẽ được lưu lại ngay lập tức.
+
+Có thể sao chép linh kiện bằng cách di chuyển chuột ngang qua linh kiện nhấp phím c rồi click chuột vào nơi muốn đặt linh kiện.
+
+Di chuyển linh kiện: Click chuột phải vào điện trở thứ 2. Chọn *Drag Component*. Đặt lại vị trí linh kiện và click chuột trái để thả. Có thể thực hiện bằng cách di chuyển chuột tới linh kiện đó bấm phím g, bấm r để xoay, x, y để lật, sau đó thả linh kiện vào vị trí muốn đặt linh kiện.
+
+>**Note** 	__Right-Click → Move component__ (tương đương với phím m) cũng là lựa chọn di chuyển linh kiện, nhưng nó phù hợp cho sử dụng các nhãn tên linh kiện và các linh kiện chưa được kết nối.
+
+Chỉnh sửa điện trở thứ 2 bằng cách di chuột sang nó bấm phím v. Thay giá trị là 100. Undo bằng cách nhấn phím Ctrl + Z.
+
+Thay đổi kích thước lưới. Trên schematic tất cả các linh kiện được bắt điểm vào mạng lưới. Có thể dễ dàng thay đổi kích thước của lưới bằng cách __Right-Click → Grid select__ 
+
+Bổ sung thêm một số linh kiện từ thư viện mà không có trong thư viện mặc định. Trong menu chọn __Preferences → Component Libraries__ click vào nút __Add__  trên mục __Component library files__.
+
+Bạn cần phải tìm nơi thư viện KiCad chính thức được cài đặt trên máy tính của bạn. Hãy tìm một thư mục thư viện chứa hàng trăm .dcm và các file lib. Hãy thử trong C: \ Program Files (x86) \ KiCad \ share \ (Windows) và / usr / share / kicad / thư viện / (Linux). Khi bạn đã tìm thấy các thư mục, chọn và thêm các thư viện microchip_pic12mcu và đóng cửa sổ.
+
+Lặp lại các bước add linh kiện, tuy nhiên lần này chọn thư viện mcu microchip PIC12 thay vì các thư viện thiết bị và chọn PIC12C508A-I / phần SN.
+
+Di chuột đến linh kiện vi điều khiển, nhấn phím x hoặc y để lật theo trục của nó bấm phím x hoặc y 1 lần nữa để nó trở lại hướng ban đầu của nó.
+
+Lặp lại các bước add linh kiện, chọn device library, chọn linh kiện led từ đó.
+
+Sắp xếp tất cả linh kiện trên schematic như hình sau:
+
+![](images/image/gsik_tutorial1_010.png)
+
+Bây giờ chúng ta cần phải tạo ra các linh kiện MYCONN3 cho kết nối 3 PIN. Bạn có thể nhảy đến bài viết Tạo thư viện linh kiện nguyên lý trong Kicad để học cách tạo một linh kiện trên sơ đồ nguyên lý, sau đó trở lại đây để tiếp tục thiết kế schematic.
+
+Bây giờ thì có thể đặt linh kiện MYCONN3 lấy từ thư viện mylib do chính tay bạn tạo ra.
+
+Linh kiện này được định nghĩa là J? (jumper) có nhãn là MYCONN3. Nếu muốn thay đổi vị trí nó click chuột phải vào J, click vào Move Field (tương đương chọn phím m). 
+
+![](images/image/gsik_myconn3_s.png)
+
+Đặt các ký hiệu nguồn và mass. Click vào nút *Place a power port* ![](images/icons/add_power.png) trên thanh công cụ bên phải. Hoặc nhấn phím P, cửa sổ linh kiện hiện ra, di chuyển xuống chọn VCC hoặc GND từ thư viện *power library*.
+
+Click vào phía trên pin của điện trở 1k để đặt VCC. Click vào khu vực phía trên VDD vi điều khiển, trong phần lịch sử Component Selection chọn VCC và đặt nó bên cạnh các pin VDD. Lặp lại quá trình add lại và đặt linh kiện VCC trên pin VCC của MYCONN3.
+
+Lặp lại các bước giống như đăt VCC nhưng đặt GND cho các linh kiện. Đặt GND bên cạnh VSS của vi điều khiển. Đặt GND dưới pin GND của MYCONN3.
+
+![](images/image/gsik_tutorial1_020.png)
+
+
 ### 4. [PCB](#pcb)
 #### Layer
 ##### Giới thiệu
