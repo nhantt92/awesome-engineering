@@ -210,6 +210,105 @@ Lặp lại các bước giống như đăt VCC nhưng đặt GND cho các linh 
 
 ![](images/image/gsik_tutorial1_020.png)
 
+Tiếp theo chúng ta sẽ nối dây các linh kiện lại với nhau. Click *Place wire* 
+![](images/icons/add_line.png) trên thanh công cụ bên phải màn hình.
+
+>**Note** Hãy cẩn thận không chọn *Place a bus* xuất hiện ngay dưới icon này nhưng có đường dày hơn và màu xanh dương. Đọc thêm phần *Kết nối bus trong KiCad* để hiểu rõ hơn về lựa chọn *Place a bus* này.
+
+Click vào vòng tròn nhỏ ở phần cuối của pin 7 của vi điều khiển và sau đó nhấn vào vòng tròn nhỏ trên pin 2 của đèn LED. Có thể phóng to trong khi đang đặt kết nối.
+
+>**Note** Nếu muốn đặt lại vị trí linh kiện đã kết nối dây, lựa chọn g (grab) thay vì lựa chọn m (move) để di chuyển linh kiện mà vẫn giữ dây kết nối.
+
+![](images/image/gsik_tutorial1_030.png)
+
+Lặp lại quá trình này và đi dây cho tất cả các linh kiện như hình dưới đây. Để kết thúc một nối dây chỉ cần double click. Khi đi dây đến những biểu tượng VCC, GND dây nên chạm vào đáy của biểu tượng VCC và đỉnh giữa của biểu tượng GND. Xem ảnh sau:
+
+![](images/image/gsik_tutorial1_040.png)
+
+Bây giờ chúng ta xem xét một cách khác để kết nối dây bằng cách sử dũng nhãn dán(lable). Chọn công cụ ghi nhãn cho đường dây bằng cách click vào *Place net name* ![](images/icons/add_line_label.png) trên thanh công cụ bên phải màn hình. Hoặc cũng có thể sử dụng phím tắt L.
+
+Nhấn vào giữa dây kết nối với pin 6 của vi điều khiển, đặt tên nhãn dán là *INPUT*.
+
+Thực hiện tương tự và đặt một nhãn trên trên đường bên phải của điện trở 100Ohm cũng với tên là *INPUT*. Hai nhãn cùng tên sẽ tạo ra 1 kết nối giữa pin 6 của VĐK PIC và điện trở 100 Ohm. Đây là kỹ thuật hữu ích khi kết nối dây trong một thiết kế lớn phức tạp, nơi các đường vẽ lộn xộn. Để đặt một nhãn dán không nhất thiết phải cần 1 sợi dây, có thể gắn kèm nhãn cho một pin.
+
+Nhãn cũng có thể sử dụng với mục đích đơn giản là mang thông tin của dây. Đặt 1 nhãn lên pin 7 của VĐK PIC. Nhập tên *uCtoLED*. Đặt tên cho dây kết nối giữa điện trở và màn hình LCD là *LEDtoR*. Đặt tên cho dây kết nối giữa MYCONN3 và điện trở là *INPUTtoR*.
+
+Không cần phải gắn nhãn với các đường VCC, GND vì các nhãn này đã được định nghĩa từ đối tượng power kết nối tới.
+
+Kết quả cuối cùng như hình:
+
+![](images/image/gsik_tutorial1_050.png)
+
+Bây giờ chúng ta làm việc với những dây không nối (unconnect wires). Bất kỳ pin hoặc dây nào không nối sẽ tạo ra 1 cảnh báo khi kiểm tra bằng KiCad. Để tránh những cảnh báo này, bạn có thể hướng dẫn chương trình cho chương trình biết là các dây dẫn hoặc pin không nối này là cố ý hoặc là gắn vào nó một cái cờ báo là không kết nối dây hoặc pin này.
+
+Click vào biểu tượng *Place no connect flag* ![](images/icons/noconn.png) trên thanh công cụ bên phải màn hình. Click vào pin 2 3 4 và 5, một dấu X sẽ thể hiện việc không nối dây hoặc pin này là cố ý.
+
+![](images/image/gsik_tutorial1_060.png)
+
+Một số linh kiện bị ẩn chân power. Làm cho nó hiển thị bằng cách Click vào biểu tượng *Show hidden pins* ![](images/icons/hidden_pin.png) trên thanh công cụ bên trái màn hình. Chân power ẩn này được tự động kết nối VCC, GND.
+
+Bây giờ cần thiết thêm một cờ *Power Flag* để chỉ cho KiCad biết power đến từ nơi nào. Nhấn phím a, chọn *List All*, double click vào *power* library và tìm *PWR_FLAG*. Đặt 2 cái và kết nối tới pin GND và VCC như hình:
+
+![](images/image/gsik_tutorial1_070.png)
+
+>**Note** Điều này tránh được cảnh báo warning khi sử dụng trình kiểm tra schematic: *Warning Pin power_in not driven (Net xx)*
+
+Đôi khi cần viết comments tại những vị trí cần thiết phải ghi chú. Để add comments trong shematic sử dụng *Place graphic text (comment)* ![](images/image/add_text.png) trên thanh công cụ bên phải.
+
+Tất cả các linh kiện bây giờ cần phải có 1 định danh là duy nhất. Trong thực tế, nhiều linh kiện vẫn có tên là R? hoặc J? Định danh linh kiện có thể được đặt một cách tự động bằng cách click vào *Annotate schematic* ![](images/icons/annotate.png) trên thanh công cụ bên trên.
+
+Trong cửa sổ Annotate Schematic chọn *Use the entire schematic* và click nút * Annotation*. Nhấn OK để thông báo xác nhận, sau đó nhấn *Close*. Chú ý, lúc này tất cả dấu ? đã được thay đổi bằng các con số. Mỗi định danh linh kiện bây giờ là duy nhất. Trong ví dụ này, được đặt tên là R1, R2, U1, D1 và J1.
+
+Bây giờ chúng ta sẽ kiểm tra lỗi schematic của chúng ta. Click vào *Perform electrical rules check* ![](images/icons/erc.png) trên thanh công cụ phía trên. Click nút *Run*. Một báo cáo (report) cho chúng ta biết về bất kỳ lỗi hoặc cảnh báo dây không được kết nối. Nên có 0 lỗi và 0 cảnh báo. Trong trường hợp lỗi hoặc cảnh báo, một mũi tên màu xanh nhỏ sẽ xuất hiện trên schematic vị trí xảy ra các lỗi hoặc cảnh báo. Kiểm tra *Create ERC file report* và nhấn nút *Run* một lần nữa để nhận thêm thông tin về các lỗi.
+
+>**Note** Nếu gặp một cảnh báo: *"No default editor found you must choose it"*. Thì thiết lặp lại đường dẫn: *c:\windows\notepad.exe (windows) or /usr/bin/gedit (Linux)*
+
+Schematic đã hoàn tất. Bây giờ chúng ta có thể tạo một tập tin Netlist để thêm footprint của mỗi linh kiện. Click vào *Generate netlist* ![](images/image/netlist.png) trên thanh công cụ phía trên. Nhấn nút *Generate* và save lại với tên mặc định. 
+
+Sau khi tạo ra Netlist, click vào biểu tượng *Run Cvpcb* ![](images/icons/Run Cvpcb) trên thanh công cụ phía trên. Nếu tập tin bị mất, cửa sổ lỗi hiện lên, chỉ cần bỏ qua nó và nhấn OK.
+
+*Cvpcb* cho phép liên kết tất cả các linh kiện trong schematic với footprint trong thư viện kiCad. Các cửa sổ trung tâm hiện ra tất cả linh kiện sử dụng trong schematic của bạn. Ở đây chọn *D1*. Trong cửa sổ bên phải có tất cả các footprint có sẵn, ở đây di chuyển xuống *LED: LED-5mm* và double click vào nó.
+
+Có thể các cửa sổ bên phải cho thấy chỉ có một nhóm được lựa chọn các footprint có sẵn. Điều này do KiCad cố gắng gợi ý cho một tập hợp các footprint phù hợp. Click vào các biểu tượng ![](images/icons/module_filtered_list.png), ![](images/icons/module_pin_filtered_list.png), ![](images/icons/module_library_list.png) để kích hoạt hoặc vô hiệu hóa các bộ lọc này.
+
+Với IC1 chọn footprint *Housings_DIP:DIP-8_W7.62mm*. Với J1 chọn footprint *Connect:Banana_Jack_3Pin*. Với R1 và R2 chọn footprint *Discret:R1*.
+
+Nếu bạn muốn footprint đang lựa chọn, có 2 cách: click vào *View selected footprint* ![](images/icons/show_footprint.png) cho xem footprint hiện tại, click *Display footprint list documentation* ![](images/icons/datasheet.png) sẽ nhận được một tài liệu datasheet nhiều trang với tất cả các footprint có sẵn và có thể in nó ra để kiểm tra linh kiện và đảm bảo chúng phù hợp.
+
+Bây giờ có thể cập nhật file Netlist với tất cả các footprint có liên quan. Click __File → Save As__. Tên mặc định là *tutorial1.net*, click save. Nếu không có thể sử dụng biểu tượng ![](images/icons/save.png). File Netlist đã được cập nhật với tất cả các footprint. Chú ý nếu đang thiếu footprint của bất kỳ thiết bị nào, cần phải tạo những footprint riêng, phần này được trình bày trong phần sau của tài liệu.
+
+Có thể đóng *Cvpcb* và quay trở lại với Schematic editor *Eeschema*. Save project bằng cách click vào __File → Save Whole Schematic Project__. Đóng Schematic editor lại.
+
+Chuyển sang trình KiCad project manager.
+
+Các file Netlist mô tả tất cả các linh kiện và kết nối chân tương ứng của nó. File Netlist là một file dạng text mà có thể dễ dàng kiểm tra, chỉnh sửa và phát thảo.
+
+>**Note** File Library (*.lib) là tập tin văn bản và cũng dễ dàng chỉnh sửa hoặc phát thảo.
+
+Để tạo một *Bill Of Materials (BOM)*, mở *Eeschema* schematic editor và click *Bill of materials* ![](images/icon/bom.png) trên thanh công cụ phía trên màn hình. Theo mặc định là không có plugin để hoạt động. Bằng cách click vào nút __Add Plugin__ chọn các tập tin *.xsl muốn sử dụng, trong đây, chúng ta chọn bom2csv.xsl.
+
+>**Note** Các file * .xsl nằm trong thư mục plugin của trình cài đặt KiCad, nằm ở: / usr / lib / kicad / plugins /.
+Hoặc tải về tập tin thông qua:
+
+*wget https://raw.githubusercontent.com/KiCad/kicad-source-mirror/master/eeschema/plugins/bom2csv.xsl*
+
+KiCad tự động tạo ra các lệnh, ví dụ:
+
+xsltproc -o "%O" "/home/<user>/kicad/eeschema/plugins/bom2csv.xsl" "%I"
+
+Bạn có thể muốn thêm phần mở rộng, thay đổi dòng lệnh sau:
+
+xsltproc -o "%O.csv" "/home/<user>/kicad/eeschema/plugins/bom2csv.xsl" "%I"
+
+Nhấn nút Help để tìm hiểu thêm.
+
+
+Bây giờ nhấn *Generate*. Các tập tin (giống tên project) nằm trong thư mục project. Mở một tập tin *.csv với LibreOffice Calc hoặc Excel. Một cửa sổ sẽ xuất hiện, nhấn OK.
+
+Đến đây đã sẵn sàng đi đến phần PCB layout và được trình bày trong phần tiếp theo. Tuy nhiên trước khi chuyển sang PCB layout, chúng ta nên tìm hiểu nhanh chóng làm như thế nào để kết nối các chân linh kiện sử dụng đường Bus.
+
+3.2. Bus connections trong KiCad
+
 
 ### 4. [PCB](#pcb)
 #### Layer
